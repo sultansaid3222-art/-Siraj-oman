@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+ <base href="./">
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("[src]").forEach(function (el) {
+    const src = el.getAttribute("src");
+    if (src && src.startsWith("assets/")) {
+      el.setAttribute("src", src.replace("assets/", ""));
+    }
+  });
+});
+</script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#711e30">
 <title>سراج عُمان الرقمي | الموسوعة العُمانية</title>
 <style>
