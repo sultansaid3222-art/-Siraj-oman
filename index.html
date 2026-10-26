@@ -792,11 +792,29 @@ extendMonuments(); updateMonumentCounts(); if(document.readyState==='loading'){d
 🔐 دخول المدير
 </button>
 
-<script>
-function adminLogin() {
-  alert("سيتم تفعيل تسجيل دخول المدير عبر Google قريبًا");
-}
-</script>
+<script type="module">
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+const app = getApps().length ? getApp() : initializeApp({
+  apiKey: "AIzaSyBYGe81jTLSodSKJYYrVJdknVTVd6cV_Vk",
+  authDomain: "sirajoman-ae206.firebaseapp.com",
+  projectId: "sirajoman-ae206",
+  appId: "1:698031938514:web:5af46584cf8b05024a460b"
+});
+
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+window.adminLogin = async function () {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    alert("مرحبًا " + (result.user.displayName || result.user.email));
+  } catch (error) {
+    alert("تعذر تسجيل الدخول: " + error.message);
+  }
+};
+ </script>
 </body>
 </html>
 
