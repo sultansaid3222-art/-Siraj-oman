@@ -793,7 +793,7 @@ extendMonuments(); updateMonumentCounts(); if(document.readyState==='loading'){d
 </button>
 
 <script type="module">
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
 
 const app = getApps().length ? getApp() : initializeApp({
@@ -808,8 +808,7 @@ const provider = new GoogleAuthProvider();
 
 window.adminLogin = async function () {
   try {
-    const result = await signInWithPopup(auth, provider);
-    alert("مرحبًا " + (result.user.displayName || result.user.email));
+    await signInWithRedirect(auth, provider);
   } catch (error) {
     alert("تعذر تسجيل الدخول: " + error.message);
   }
