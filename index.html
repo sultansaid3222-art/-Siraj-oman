@@ -4,6 +4,13 @@
  <base href="./">
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('img[src*="jaalan_fort.png"]').forEach(function(img) {
+    img.src = "https://hjxg7zsspudh01gq.public.blob.vercel-storage.com/IMG_5137.png";
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("[src]").forEach(function (el) {
     const src = el.getAttribute("src");
     if (src && src.startsWith("assets/")) {
