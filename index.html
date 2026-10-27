@@ -788,7 +788,7 @@ extendMonuments(); updateMonumentCounts(); if(document.readyState==='loading'){d
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
- <button id="adminLoginBtn" onclick="adminLogin()" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#087f5b;color:white;padding:12px 20px;border:0;border-radius:12px;font-size:16px;cursor:pointer;">
+ <button id="adminLoginBtn" onclick="window.adminLogin()">
 🔐 دخول المدير
 </button>
 
